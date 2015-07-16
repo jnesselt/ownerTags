@@ -35,7 +35,7 @@ fi
 echo -e InstanceId'\t'State'\t'KeyName'\t'Name Tag'\t'group Tag'\t'system Tag'\t'owner Tag - Email > ~/data/ownerTags/tempfile1.dat
 aws ec2 describe-instances --region $region --query 'Reservations[*].Instances[*].[InstanceId,State.Name,KeyName,Tags[?Key==`Name`].Value | [0],Tags[?Key==`group`].Value | [0],Tags[?Key==`system`].Value | [0],Tags[?Key==`owner`].Value | [0]]' --output text >> ~/data/ownerTags/tempfile1.dat
 
-~/ownerTags/addExceededTagCounts.py ~/data/ownerTags/tempfile1.dat ~/data/ownerTags/tempfile2.dat 
+~/ownerTags/addExceededTagCounts.py ~/data/ownerTags/tempfile1.dat ~/data/ownerTags/tempfile2.dat $environment $region
 
 # Remove Teminated Instances
 grep -v ^i-.........terminated ~/data/ownerTags/tempfile2.dat > ~/data/ownerTags/$environment-$region-ownerTags.dat

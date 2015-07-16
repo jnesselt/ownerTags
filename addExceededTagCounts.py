@@ -13,6 +13,8 @@ from email.mime.text import MIMEText
 home = expanduser("~")
 input = sys.argv[1]
 output = sys.argv[2]
+environment = sys.argv[3]
+region = sys.argv[4]
 
 tagCounts = open(home + '/data/awsUtils/tagCounts.dat')
 instanceOwnerIn = open(input)
@@ -40,7 +42,7 @@ for line in instanceOwnerIn:
     except IndexError:
         emailFrom = config.get("OwnerTags", "EmailFrom")
         emailTo = config.get("OwnerTags", "EmailTo")
-        msg = MIMEText("IndexError on: " + elements[0] + " from addExceededTagCounts.py")
+        msg = MIMEText("IndexError on: " + elements[0] + " from addExceededTagCounts.py" + "\nEnvironment: " + environment + "\nRegion: " + region)
         msg['Subject'] = "IndexError on: " + elements[0] + " from addExceededTagCounts.py"
         msg['From'] = emailFrom
         msg['To'] = emailTo
