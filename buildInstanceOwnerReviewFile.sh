@@ -21,6 +21,8 @@ if [ "$environment" == "preprod" ]; then
         attachmentId=att111872591
     elif [ "$region" == "us-west-2" ]; then
         attachmentId=att111872597
+    elif [ "$region" == "eu-west-1" ]; then
+        attachmentId=att???
     fi
 elif [ "$environment" == "prod" ]; then
     source ~/bin/setenv.sh prod
@@ -29,6 +31,8 @@ elif [ "$environment" == "prod" ]; then
         attachmentId=att112656597
     elif [ "$region" == "us-west-2" ]; then
         attachmentId=att112656598
+    elif [ "$region" == "eu-west-1" ]; then
+        attachmentId=att???
     fi
 fi
 # Create tab delimited instance file by account and region
