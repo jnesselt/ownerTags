@@ -37,8 +37,8 @@ for line in instanceOwnerIn:
                 instanceOwnerOut.write(line.rstrip('\n') + " - " + d[elements[0]] + " tags\n")
             else:
                 instanceOwnerOut.write(line)
-        #else:
-        #    instanceOwnerOut.write(line)
+        else:
+            instanceOwnerOut.write(line)
     except IndexError:
         emailFrom = config.get("OwnerTags", "EmailFrom")
         emailTo = config.get("OwnerTags", "EmailTo")
